@@ -7,6 +7,19 @@
           null
         ]
       },
+      "/home/vagner/Projects/juru_finance/app/models/resident.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/home/vagner/Projects/juru_finance/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
       "/home/vagner/Projects/juru_finance/app/controllers/home_controller.rb": {
         "lines": [
           1,
@@ -19,17 +32,8 @@
           1,
           null
         ]
-      },
-      "/home/vagner/Projects/juru_finance/app/models/application_record.rb": {
-        "lines": [
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
       }
     },
-    "timestamp": 1682866659
+    "timestamp": 1682969602
   }
 }
