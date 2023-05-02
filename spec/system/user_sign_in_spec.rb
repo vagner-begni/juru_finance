@@ -12,9 +12,10 @@ describe 'User authenticate yourself' do
       click_on 'Entrar'
     end
 
-    expect(page).not_to have_link 'Entrar'
-    expect(page).to have_link 'Sair'
+    expect(page).to have_content('Login efetuado com sucesso.')
     within('nav') do
+      expect(page).not_to have_link 'Entrar'
+      expect(page).to have_button 'Sair'
       expect(page).to have_content 'morador001@email.com'
     end
   end
