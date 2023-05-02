@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>JuruFinance</title>
+    <meta lang="pt-BR">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JuruFinance</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +11,14 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+    </header>
+    <main>
+      <div>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </div>
+      <%= yield %>
+    </main>
   </body>
 </html>

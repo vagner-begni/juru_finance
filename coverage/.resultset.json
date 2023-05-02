@@ -1,6 +1,23 @@
 {
   "RSpec": {
     "coverage": {
+      "/home/vagner/Projects/juru_finance/app/models/user.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/vagner/Projects/juru_finance/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
       "/home/vagner/Projects/juru_finance/app/helpers/application_helper.rb": {
         "lines": [
           1,
@@ -9,13 +26,6 @@
       },
       "/home/vagner/Projects/juru_finance/app/models/resident.rb": {
         "lines": [
-          1,
-          null
-        ]
-      },
-      "/home/vagner/Projects/juru_finance/app/models/application_record.rb": {
-        "lines": [
-          1,
           1,
           null
         ]
@@ -34,6 +44,6 @@
         ]
       }
     },
-    "timestamp": 1682992495
+    "timestamp": 1682993745
   }
 }
