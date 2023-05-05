@@ -21,7 +21,7 @@ describe 'User authenticate yourself' do
   end
 
   it 'and logout yourself' do
-    user = User.create!(email: 'morador001@email.com', password: 'morador001')
+    User.create!(email: 'morador001@email.com', password: 'morador001')
 
     visit root_path
     click_on 'Entrar'
