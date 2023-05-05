@@ -44,8 +44,16 @@
           1,
           null
         ]
+      },
+      "/home/vagner/Projects/juru_finance/app/controllers/users_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1683246709
+    "timestamp": 1683251521
   }
 }

@@ -1,0 +1,14 @@
+en:
+  undefined: 'undefined'
+  admin: 'administrator'
+  finacial: 'financial'
+  employee: 'employee'
+  resident: 'resident'
+  activerecord:
+    models:
+      user:
+        one: 'user'
+        other: 'users'
+    attributes:
+      user:
+        role: 'role'

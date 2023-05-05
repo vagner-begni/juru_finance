@@ -1,0 +1,6 @@
+pt-BR:
+  views:
+    users:
+      index:
+        title: "Usuários Cadastrados"
+

@@ -1,0 +1,14 @@
+pt-BR:
+  undefined: 'indefinido'
+  admin: 'administrador'
+  finacial: 'financeiro'
+  employee: 'funcionário'
+  resident: 'morador'
+  activerecord:
+    models:
+      user:
+        one: 'usuário'
+        other: 'usuários'
+    attributes:
+      user:
+        role: 'perfil'
