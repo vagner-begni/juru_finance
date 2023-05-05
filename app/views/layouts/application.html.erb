@@ -18,7 +18,7 @@
       <nav>
         <% if user_signed_in? %>
           <% if current_user.admin? %>
-            <%= link_to User.model_name.human(count: 2).titleize , users_path %> |
+            <%= link_to I18n.t('admin').titleize , users_path %> |
           <% end %>
           <%= current_user.email %> |
           <%= button_to 'Sair', destroy_user_session_path, method: :delete %>

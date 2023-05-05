@@ -1,7 +1,7 @@
 pt-BR:
   undefined: 'indefinido'
   admin: 'administrador'
-  finacial: 'financeiro'
+  financial: 'financeiro'
   employee: 'funcionário'
   resident: 'morador'
   activerecord:

@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:admin, :financial, :employee, :resident]
-  
+  before_action :set_user, only: %i[admin financial employee resident]
+
   def index
-    @users = User.all
+    @users = User.order('role asc')
   end
 
   def admin

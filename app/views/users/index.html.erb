@@ -4,35 +4,41 @@
     <thead>
       <tr>
      	  <th>E-mail</th>
-     	  <th>Perfil</th>
-     	  <th></th>
-     	  <th></th>
-     	  <th></th>
-     	  <th></th>
+     	  <th>..........................</th>
+     	  <th>.................... P E R</th>
+     	  <th>F I S ....................</th>
+     	  <th>..........................</th>
    	  </tr>
     </thead>
 		<tbody>
 		  <% @users.each do |user| %>
-       	<tr>
+       	<tr id='user_<%= "#{user.id}" %>' align="center">
        		<td><%= user.email %></td>
-       		<td><%= user.role %></td>
        		<td>
-            <% if !user.admin? %>
+            <% if user.admin? %>
+              <strong><%= I18n.t(user.role).titleize %></strong>
+            <% else %>
               <%= button_to 'Administrador', admin_user_path(user.id) %>
             <% end %>
           </td>
        		<td>
-            <% if !user.financial? %>
+            <% if user.financial? %>
+              <strong><%= I18n.t(user.role).titleize %></strong>
+            <% else %>
               <%= button_to 'Financeiro', financial_user_path(user.id) %>
             <% end %>
           </td>
        		<td>
-            <% if !user.employee? %>
+            <% if user.employee? %>
+              <strong><%= I18n.t(user.role).titleize %></strong>
+            <% else %>
               <%= button_to 'Funcionário', employee_user_path(user.id) %>
             <% end %>
           </td>
        		<td>
-            <% if !user.resident? %>
+            <% if user.resident? %>
+              <strong><%= I18n.t(user.role).titleize %></strong>
+            <% else %>
               <%= button_to 'Morador', resident_user_path(user.id) %>
             <% end %>
           </td>
