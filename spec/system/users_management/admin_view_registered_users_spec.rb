@@ -58,7 +58,6 @@ describe 'Authenticated Admin visits users page' do
   end
 end
 
-
 describe 'Admin setting a undefined role...' do
   it 'see the roles buttons' do
     admin = User.create!(email: 'morador001@email.com', password: 'morador001', role: 'admin')
@@ -70,7 +69,7 @@ describe 'Admin setting a undefined role...' do
       click_on 'Administrador'
     end
 
-    within "tr#user_#{user.id}" do
+    within("tr#user_#{user.id}") do
       expect(page).to have_button('Financeiro')
       expect(page).to have_button('Administrador')
       expect(page).to have_button('Funcionário')
@@ -87,11 +86,12 @@ describe 'Admin setting a undefined role...' do
     within('nav') do
       click_on 'Administrador'
     end
-    within "tr#user_#{user.id}" do
+    within("tr#user_#{user.id}") do
       click_on 'Administrador'
     end
 
-    within "tr#user_#{user.id}" do
+    expect(page).to have_content('Perfil atualizado com sucesso.')
+    within("tr#user_#{user.id}") do
       expect(page).to have_content('Administrador')
       expect(page).not_to have_button('Administrador')
       expect(page).to have_button('Financeiro')
@@ -109,11 +109,12 @@ describe 'Admin setting a undefined role...' do
     within('nav') do
       click_on 'Administrador'
     end
-    within "tr#user_#{user.id}" do
+    within("tr#user_#{user.id}") do
       click_on 'Financeiro'
     end
 
-    within "tr#user_#{user.id}" do
+    expect(page).to have_content('Perfil atualizado com sucesso.')
+    within("tr#user_#{user.id}") do
       expect(page).to have_content('Financeiro')
       expect(page).not_to have_button('Financeiro')
       expect(page).to have_button('Administrador')
@@ -131,11 +132,12 @@ describe 'Admin setting a undefined role...' do
     within('nav') do
       click_on 'Administrador'
     end
-    within "tr#user_#{user.id}" do
+    within("tr#user_#{user.id}") do
       click_on 'Funcionário'
     end
 
-    within "tr#user_#{user.id}" do
+    expect(page).to have_content('Perfil atualizado com sucesso.')
+    within("tr#user_#{user.id}") do
       expect(page).to have_content('Funcionário')
       expect(page).not_to have_button('Funcionário')
       expect(page).to have_button('Administrador')
@@ -153,16 +155,64 @@ describe 'Admin setting a undefined role...' do
     within('nav') do
       click_on 'Administrador'
     end
-    within "tr#user_#{user.id}" do
+    within("tr#user_#{user.id}") do
       click_on 'Morador'
     end
 
-    within "tr#user_#{user.id}" do
+    expect(page).to have_content('Perfil atualizado com sucesso.')
+    within("tr#user_#{user.id}") do
       expect(page).to have_content('Morador')
       expect(page).not_to have_button('Morador')
       expect(page).to have_button('Administrador')
       expect(page).to have_button('Financeiro')
       expect(page).to have_button('Funcionário')
+    end
+  end
+end
+
+describe 'Admin sets a Admin to other role...' do
+  it 'successfully if there are others admins' do
+    admin_a = User.create!(email: 'morador001@email.com', password: 'morador001', role: 'admin')
+    User.create!(email: 'morador002@email.com', password: 'morador002', role: 'admin')
+
+    login_as admin_a
+    visit root_path
+    within('nav') do
+      click_on 'Administrador'
+    end
+    within("tr#user_#{admin_a.id}") do
+      click_on 'Financeiro'
+    end
+
+    expect(page).to have_content('Perfil atualizado com sucesso.')
+    within("tr#user_#{admin_a.id}") do
+      expect(page).to have_content('Financeiro')
+      expect(page).not_to have_button('Financeiro')
+      expect(page).to have_button('Administrador')
+      expect(page).to have_button('Funcionário')
+      expect(page).to have_button('Morador')
+    end
+  end
+
+  it 'and get error if theres only one Admin' do
+    admin_a = User.create!(email: 'morador001@email.com', password: 'morador001', role: 'admin')
+
+    login_as admin_a
+    visit root_path
+    within('nav') do
+      click_on 'Administrador'
+    end
+    within("tr#user_#{admin_a.id}") do
+      click_on 'Financeiro'
+    end
+
+    expect(page).to have_content('Sistema não pode ficar sem administrador!')
+    within("tr#user_#{admin_a.id}") do
+      expect(page).to have_content('Administrador')
+      expect(page).not_to have_button('Administrador')
+      expect(page).to have_button('Financeiro')
+      expect(page).to have_button('Funcionário')
+      expect(page).to have_button('Morador')
     end
   end
 end

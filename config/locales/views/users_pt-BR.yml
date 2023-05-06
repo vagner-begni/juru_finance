@@ -3,4 +3,11 @@ pt-BR:
     users:
       index:
         title: "Usuários Cadastrados"
+        messages:
+          role_change:
+            succeeded: 'Perfil atualizado com sucesso.'
+            failed:
+              unique_admin: 'Sistema não pode ficar sem administrador!'
+
+
 

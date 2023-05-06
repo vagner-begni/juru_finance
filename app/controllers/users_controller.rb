@@ -7,22 +7,34 @@ class UsersController < ApplicationController
 
   def admin
     @user.admin!
-    redirect_to users_path
+    redirect_to users_path, notice: I18n.t('views.users.index.messages.role_change.succeeded')
   end
 
   def financial
-    @user.financial!
-    redirect_to users_path
+    if @user.admin? && User.admin.count == 1
+      redirect_to users_path, alert: I18n.t('views.users.index.messages.role_change.failed.unique_admin')
+    else
+      @user.financial!
+      redirect_to users_path, notice: I18n.t('views.users.index.messages.role_change.succeeded')
+    end
   end
 
   def employee
-    @user.employee!
-    redirect_to users_path
+    if @user.admin? && User.admin.count == 1
+      redirect_to users_path, alert: I18n.t('views.users.index.messages.role_change.failed.unique_admin')
+    else
+      @user.employee!
+      redirect_to users_path, notice: I18n.t('views.users.index.messages.role_change.succeeded')
+    end
   end
 
   def resident
-    @user.resident!
-    redirect_to users_path
+    if @user.admin? && User.admin.count == 1
+      redirect_to users_path, alert: I18n.t('views.users.index.messages.role_change.failed.unique_admin')
+    else
+      @user.resident!
+      redirect_to users_path, notice: I18n.t('views.users.index.messages.role_change.succeeded')
+    end
   end
 
   private
