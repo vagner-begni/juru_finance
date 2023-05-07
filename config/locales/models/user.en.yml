@@ -1,7 +1,7 @@
 en:
   undefined: 'undefined'
   admin: 'administrator'
-  finacial: 'financial'
+  financial: 'financial'
   employee: 'employee'
   resident: 'resident'
   activerecord:
@@ -11,4 +11,6 @@ en:
         other: 'users'
     attributes:
       user:
-        role: 'role'
+        role:
+          one: 'role'
+          other: 'roles'

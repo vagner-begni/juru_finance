@@ -5,3 +5,5 @@ en:
         action:
           one: 'acction'
           other: 'acctions'
+    button:
+      delete: 'delete'

@@ -3,3 +3,12 @@ en:
     users:
       index:
         title: "Registered Users"
+        messages:
+          role_change:
+            succeeded: 'Role updated successfully!'
+            failed:
+              unique_admin: "Failed! An unique admin can't be updated."
+          deletion:
+            succeeded: 'User deleted successfully!'
+            failed:
+              unique_admin: "Failed! An unique admin can't be deleted."
