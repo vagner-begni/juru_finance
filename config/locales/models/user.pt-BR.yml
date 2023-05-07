@@ -11,4 +11,6 @@ pt-BR:
         other: 'usuários'
     attributes:
       user:
-        role: 'perfil'
+        role:
+          one: 'perfil'
+          other: 'perfis'

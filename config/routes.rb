@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
   #get '/users', to: 'users#index', as: 'users'
 
-  resources :users, only: [:index] do
+  resources :users, only: [:index, :destroy] do
     post 'admin', on: :member
     post 'financial', on: :member
     post 'employee', on: :member

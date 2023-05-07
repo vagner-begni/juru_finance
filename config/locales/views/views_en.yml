@@ -1,0 +1,7 @@
+en:
+  views:
+    table:
+      header:
+        action:
+          one: 'acction'
+          other: 'acctions'

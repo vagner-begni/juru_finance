@@ -1,0 +1,9 @@
+pt-BR:
+  views:
+    table:
+      header:
+        action:
+          one: 'ação'
+          other: 'ações'
+    button:
+      delete: 'excluir'

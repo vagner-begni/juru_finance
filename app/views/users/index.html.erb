@@ -1,51 +1,53 @@
 <h2><%= I18n.t 'views.users.index.title' %></h2>
-<% if @users.any? %>
-  <table>
-    <thead>
-      <tr>
-     	  <th>E-mail</th>
-     	  <th>..........................</th>
-     	  <th>.................... P E R</th>
-     	  <th>F I S ....................</th>
-     	  <th>..........................</th>
-   	  </tr>
-    </thead>
-		<tbody>
-		  <% @users.each do |user| %>
-       	<tr id='user_<%= "#{user.id}" %>' align="center">
-       		<td><%= user.email %></td>
-       		<td>
-            <% if user.admin? %>
-              <strong><%= I18n.t(user.role).titleize %></strong>
-            <% else %>
-              <%= button_to 'Administrador', admin_user_path(user.id) %>
-            <% end %>
-          </td>
-       		<td>
-            <% if user.financial? %>
-              <strong><%= I18n.t(user.role).titleize %></strong>
-            <% else %>
-              <%= button_to 'Financeiro', financial_user_path(user.id) %>
-            <% end %>
-          </td>
-       		<td>
-            <% if user.employee? %>
-              <strong><%= I18n.t(user.role).titleize %></strong>
-            <% else %>
-              <%= button_to 'Funcionário', employee_user_path(user.id) %>
-            <% end %>
-          </td>
-       		<td>
-            <% if user.resident? %>
-              <strong><%= I18n.t(user.role).titleize %></strong>
-            <% else %>
-              <%= button_to 'Morador', resident_user_path(user.id) %>
-            <% end %>
-          </td>
-     		</tr>
-			<% end %>
-		</tbody>
-  </table>
-<% else %>
-	<p>Não existem usuários cadastrados.</p>
-<% end %>
+<table>
+  <thead>
+    <tr align="center">
+   	  <th><%= User.human_attribute_name('email').titleize %></th>
+   	  <th>|</th>
+   	  <th colspan='4'><%= User.human_attribute_name('role', count:2).titleize %></th>
+   	  <th>|</th>
+      <th><%= I18n.t('views.table.header.action.one').titleize %></th>
+ 	  </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr id='user_<%= "#{user.id}" %>' align="center">
+      	<td><%= user.email %></td>
+   	    <td>|</td>
+      	<td>
+          <% if user.admin? %>
+            <strong><%= I18n.t(user.role).titleize %></strong>
+          <% else %>
+            <%= button_to I18n.t('admin').titleize, admin_user_path(user.id) %>
+          <% end %>
+        </td>
+      	<td>
+          <% if user.financial? %>
+            <strong><%= I18n.t(user.role).titleize %></strong>
+          <% else %>
+            <%= button_to I18n.t('financial').titleize, financial_user_path(user.id) %>
+          <% end %>
+        </td>
+      	<td>
+          <% if user.employee? %>
+            <strong><%= I18n.t(user.role).titleize %></strong>
+          <% else %>
+            <%= button_to I18n.t('employee').titleize, employee_user_path(user.id) %>
+          <% end %>
+        </td>
+      	<td>
+          <% if user.resident? %>
+            <strong><%= I18n.t(user.role).titleize %></strong>
+          <% else %>
+            <%= button_to I18n.t('resident').titleize, resident_user_path(user.id) %>
+          <% end %>
+        </td>
+   	    <td>|</td>
+      	<td>
+          <%= button_to I18n.t('views.button.delete').titleize, user_path(user.id),
+                                                                method: :delete %>
+        </td>
+     	</tr>
+  	<% end %>
+  </tbody>
+</table>

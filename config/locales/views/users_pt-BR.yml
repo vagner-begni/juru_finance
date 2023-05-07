@@ -7,7 +7,10 @@ pt-BR:
           role_change:
             succeeded: 'Perfil atualizado com sucesso.'
             failed:
-              unique_admin: 'Sistema não pode ficar sem administrador!'
-
+              unique_admin: 'Falha na atualização! Sistema não pode ficar sem administrador.'
+          deletion:
+            succeeded: 'Usuário excluído com sucesso.'
+            failed:
+              unique_admin: 'Falha na Exclusão! Sistema não pode ficar sem administrador.'
 
 
