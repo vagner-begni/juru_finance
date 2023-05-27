@@ -22,7 +22,7 @@ Application for managing the financial transactions required to maintain a servi
 
 ### Usage
 No Linux terminal, type:
-* git clone ***xxx***
+* git clone git@github.com:vagner-begni/juru_finance.git
 * cd juru_finance
 * bundle install
 * rails db:migrate
