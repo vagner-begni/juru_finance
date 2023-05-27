@@ -7,7 +7,7 @@ describe 'Not Admin visits users page' do
     expect(page).not_to have_link('Administrador')
   end
 
-  it 'a authorized user wihout role dont see the link' do
+  it 'a authorized user without role dont see the link' do
     user = User.create!(email: 'morador001@email.com', password: 'morador001')
 
     login_as user
