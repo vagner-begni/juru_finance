@@ -44,8 +44,10 @@
         </td>
    	    <td>|</td>
       	<td>
-          <%= button_to I18n.t('views.button.delete').titleize, user_path(user.id),
-                                                                method: :delete %>
+          <% if !user.admin? or User.admin.count > 1 %>
+            <%= button_to I18n.t('views.button.delete').titleize, user_path(user.id),
+                                                                  method: :delete %>
+          <% end %>
         </td>
      	</tr>
   	<% end %>
