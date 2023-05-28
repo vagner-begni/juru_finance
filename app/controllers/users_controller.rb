@@ -8,12 +8,8 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    if @user.admin? && User.admin.count == 1
-      redirect_to users_path, notice: I18n.t('views.users.index.messages.deletion.failed.unique_admin')
-    else
-      @user.destroy
-      redirect_to users_path, notice: I18n.t('views.users.index.messages.deletion.succeeded')
-    end
+    @user.destroy
+    redirect_to users_path, notice: I18n.t('views.users.index.messages.deletion.succeeded')
   end
 
   def admin
@@ -22,30 +18,18 @@ class UsersController < ApplicationController
   end
 
   def financial
-    if @user.admin? && User.admin.count == 1
-      redirect_to users_path, alert: I18n.t('views.users.index.messages.role_change.failed.unique_admin')
-    else
-      @user.financial!
-      redirect_to users_path, notice: I18n.t('views.users.index.messages.role_change.succeeded')
-    end
+    @user.financial!
+    redirect_to users_path, notice: I18n.t('views.users.index.messages.role_change.succeeded')
   end
 
   def employee
-    if @user.admin? && User.admin.count == 1
-      redirect_to users_path, alert: I18n.t('views.users.index.messages.role_change.failed.unique_admin')
-    else
-      @user.employee!
-      redirect_to users_path, notice: I18n.t('views.users.index.messages.role_change.succeeded')
-    end
+    @user.employee!
+    redirect_to users_path, notice: I18n.t('views.users.index.messages.role_change.succeeded')
   end
 
   def resident
-    if @user.admin? && User.admin.count == 1
-      redirect_to users_path, alert: I18n.t('views.users.index.messages.role_change.failed.unique_admin')
-    else
-      @user.resident!
-      redirect_to users_path, notice: I18n.t('views.users.index.messages.role_change.succeeded')
-    end
+    @user.resident!
+    redirect_to users_path, notice: I18n.t('views.users.index.messages.role_change.succeeded')
   end
 
   private

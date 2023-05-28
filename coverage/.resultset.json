@@ -26,6 +26,27 @@
           null
         ]
       },
+      "/home/vagner/Projects/juru_finance/app/mailers/admin_mailer.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null
+        ]
+      },
+      "/home/vagner/Projects/juru_finance/app/mailers/application_mailer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
       "/home/vagner/Projects/juru_finance/app/models/resident.rb": {
         "lines": [
           1,
@@ -58,11 +79,7 @@
           1,
           1,
           1,
-          0,
-          null,
           1,
-          1,
-          null,
           null,
           null,
           1,
@@ -72,29 +89,17 @@
           null,
           1,
           1,
-          0,
-          null,
           1,
-          1,
-          null,
           null,
           null,
           1,
           1,
-          0,
-          null,
           1,
-          1,
-          null,
           null,
           null,
           1,
           1,
-          0,
-          null,
           1,
-          1,
-          null,
           null,
           null,
           1,
@@ -106,6 +111,6 @@
         ]
       }
     },
-    "timestamp": 1685308249
+    "timestamp": 1685311488
   }
 }
