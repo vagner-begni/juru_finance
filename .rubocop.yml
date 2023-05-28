@@ -14,6 +14,9 @@ AllCops:
     - 'db/schema.rb'
     - 'db/migrate/**/*'
     - 'spec/rails_helper.rb'
+  SuggestExtensions:
+    rubocop-capybara: false
+    rubocop-rspec: false
 
 # Trabalhamos bastante com testes como a documentação viva do projeto então
 # desabilitamos a Cop de documentação com comentário
