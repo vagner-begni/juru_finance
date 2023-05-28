@@ -17,34 +17,34 @@
       	<td>
           <% if user.admin? %>
             <strong><%= I18n.t(user.role).titleize %></strong>
-          <% else %>
+          <% elsif user != current_user %>
             <%= button_to I18n.t('admin').titleize, admin_user_path(user.id) %>
           <% end %>
         </td>
       	<td>
           <% if user.financial? %>
             <strong><%= I18n.t(user.role).titleize %></strong>
-          <% else %>
+          <% elsif user != current_user %>
             <%= button_to I18n.t('financial').titleize, financial_user_path(user.id) %>
           <% end %>
         </td>
       	<td>
           <% if user.employee? %>
             <strong><%= I18n.t(user.role).titleize %></strong>
-          <% else %>
+          <% elsif user != current_user %>
             <%= button_to I18n.t('employee').titleize, employee_user_path(user.id) %>
           <% end %>
         </td>
       	<td>
           <% if user.resident? %>
             <strong><%= I18n.t(user.role).titleize %></strong>
-          <% else %>
+          <% elsif user != current_user %>
             <%= button_to I18n.t('resident').titleize, resident_user_path(user.id) %>
           <% end %>
         </td>
    	    <td>|</td>
       	<td>
-          <% if !user.admin? or User.admin.count > 1 %>
+          <% if user != current_user %>
             <%= button_to I18n.t('views.button.delete').titleize, user_path(user.id),
                                                                   method: :delete %>
           <% end %>
